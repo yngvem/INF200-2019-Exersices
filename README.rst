@@ -1,11 +1,11 @@
 INF200 Exersices:
 =================
 
-FIRST_NAME SURNAME:
+Petter Hetland:
 -------------------
 
-This repository contains all the exersices written as part of the
+This repository contains all the exercises written as part of the
 advanced Python programming course at NMBU.
 
-The problem sheets are given in the `exersices
-<exersices>`_. folder.
+The problem sheets are given in the `exercises
+<exercises>`_. folder.
