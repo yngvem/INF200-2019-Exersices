@@ -1,16 +1,8 @@
 # Imports
 from random import randint as r
 
-
-# Aesthetic separators:
-def separator(length):
-    if length == "long":
-        print("\n-----------------\n")
-    elif length == "short":
-        print("\n--------\n")
-    elif length == "d_long":
-        print("\n-----------------")
-        print("-----------------\n")
+__author__ = "Petter Hetland"
+__email__ = "pehe@nmbu.no"
 
 
 # Creates a normal deck of 52 cards:
@@ -84,7 +76,7 @@ def count_wins(num_of_completes, wins, losses):
     return wins, losses
 
 
-# Prints the result of the sim
+# Calculates the chances of winning and prints the result of the sim:
 def sim_result(wins, losses, num_of_sims):
     chance_of_winning = float((wins / losses) * 100)
     print(
@@ -96,3 +88,14 @@ def sim_result(wins, losses, num_of_sims):
     print("- Total amount of wins: {}".format(wins))
     print("- Total amount of losses: {}".format(losses))
     separator("d_long")
+
+
+# Aesthetic separators:
+def separator(length):
+    if length == "long":
+        print("\n-----------------\n")
+    elif length == "short":
+        print("\n--------\n")
+    elif length == "d_long":
+        print("\n-----------------")
+        print("-----------------\n")

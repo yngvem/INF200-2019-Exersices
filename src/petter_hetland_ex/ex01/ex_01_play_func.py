@@ -1,19 +1,11 @@
 # Imports
 from random import randint as r
 
-
-# Aesthetic separators
-def separator(length):
-    if length == "long":
-        print("\n-----------------\n")
-    elif length == "short":
-        print("\n--------\n")
-    elif length == "d_long":
-        print("\n-----------------")
-        print("-----------------\n")
+__author__ = "Petter Hetland"
+__email__ = "pehe@nmbu.no"
 
 
-# Creates a normal deck of 52 cards
+# Creates a normal deck of 52 cards:
 def create_deck_of_cards():
     SUITS = ["C", "S", "H", "D"]
     VALUES = range(1, 14)
@@ -61,6 +53,26 @@ def deal_rounds(current_board, num_of_cards_dealt, deck):
                 pass
     # Prints the state of the playing board:
     print_board(current_board, num_of_cards_dealt)
+
+
+# Searches for - and marks - completed positions:
+def mark_complete(current_board):
+    for i, value in current_board.items():
+        if (
+            value == ("D", i)
+            or value == ("C", i)
+            or value == ("S", i)
+            or value == ("H", i)
+        ) and i != 13:
+            current_board[i] = "Complete"
+        else:
+            pass
+
+
+# Draws a random card from the remainder of the deck:
+def draw(num_of_cards_dealt):
+    random_card = r(0, (52 - num_of_cards_dealt - 1))
+    return random_card
 
 
 # Count num of completes:
@@ -124,27 +136,18 @@ def play_again(play):
     return play
 
 
-# Searches for and marks completed positions:
-def mark_complete(current_board):
-    for i, value in current_board.items():
-        if (
-            value == ("D", i)
-            or value == ("C", i)
-            or value == ("S", i)
-            or value == ("H", i)
-        ) and i != 13:
-            current_board[i] = "Complete"
-        else:
-            pass
-
-
-# Draws a random card from the remainder of the deck:
-def draw(num_of_cards_dealt):
-    random_card = r(0, (52 - num_of_cards_dealt - 1))
-    return random_card
-
-
 # Prints end statement:
 def end_game(num_of_completes):
     print("The game is done! Your score was {}/12 points.".format(num_of_completes))
     separator("d_long")
+
+
+# Aesthetic separators:
+def separator(length):
+    if length == "long":
+        print("\n-----------------\n")
+    elif length == "short":
+        print("\n--------\n")
+    elif length == "d_long":
+        print("\n-----------------")
+        print("-----------------\n")
