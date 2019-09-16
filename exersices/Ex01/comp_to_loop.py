@@ -13,3 +13,4 @@ def squares_by_loop(n):
         if k % 3 == 1:
             k_list.append(k**2)
     return
+
