@@ -1,7 +1,7 @@
 import ex_01_sim_func as f
 from random import randint as r
 
-__author__ = "Petter Hetland"
+__author__ = "petter hetland"
 __email__ = "pehe@nmbu.no"
 
 
@@ -12,7 +12,9 @@ if __name__ == "__main__":
     wins = 0
     losses = 0
 
-    while num_of_sims < 100000:  # Select number of simulations with a maximum of 500k
+    while (
+        num_of_sims < 100000
+    ):  # Select number of simulations with a maximum of 500k
         # Variables for each sim
         num_of_cards_dealt = 0
         num_of_completes = 0

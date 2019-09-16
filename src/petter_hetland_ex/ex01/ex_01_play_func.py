@@ -138,7 +138,11 @@ def play_again(play):
 
 # Prints end statement:
 def end_game(num_of_completes):
-    print("The game is done! Your score was {}/12 points.".format(num_of_completes))
+    print(
+        "The game is done! Your score was {}/12 points.".format(
+            num_of_completes
+        )
+    )
     separator("d_long")
 
 
