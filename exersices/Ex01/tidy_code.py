@@ -10,11 +10,14 @@ def guess_bigger_than_0():
         guess = int(input('Your guess: '))
     return guess
 
+
 def throw_2_dice():
     return randint(1, 6) + randint(1, 6)
 
+
 def check_correct(f, g):
     return f == g
+
 
 if __name__ == '__main__':
 
