@@ -1,40 +1,90 @@
-import ex_01_sim_func as f
-from random import randint as r
+from random import shuffle
 
 __author__ = "petter hetland"
 __email__ = "pehe@nmbu.no"
 
 
-# Runs the script with functions from ex_01_functions
+def play_game():
+    """Play a single game of modified clock patience.
+
+    Returns
+    -------
+    win: bool
+        True if the game resulted in a win and False otherwise
+    """
+    cards = create_deck_of_cards()
+    shuffle(cards)
+    board = create_board()
+    while len(cards) > 0:
+        cards, board = play_one_round(cards, board)
+        if is_winning_state(board):
+            return True
+
+    return False
+
+
+def create_deck_of_cards():
+    """Creates a normal deck of 52 playing cards, in form of a list with 2-tuples.
+    """
+    suits = ["C", "S", "H", "D"]
+    deck = [(suit, val) for suit in suits for val in range(1, 14)]
+    return deck
+
+
+def create_board():
+    """ Creates a playing board with 13 empty positions in the form of 2-tuples.
+    """
+    board = [(None, None) for _ in range(13)]
+    return board
+
+
+def play_one_round(cards, board):
+    """Play a single round of clock patience.
+    For each position, check if that position is locked,
+    If it is locked, skip that position (continue),
+    Otherwise deal a card.
+    """
+    for position, board_state in enumerate(board):
+        if board_state[1] == position + 1:
+            continue
+        elif len(cards) == 0:
+            break
+
+        board[position] = cards.pop()
+    return cards, board
+
+
+def is_winning_state(board):
+    """Returns True if the board is in a winning state and False otherwise.
+    """
+    for position, board_state in enumerate(board):
+        if board_state[1] != position + 1:
+            return False
+    return True
+
+
+def game_finished(cards, board):
+    """Returns True if the game is over and False otherwise
+    """
+    return is_winning_state(board) or len(cards) == 0
+
+
+def play_n_games(n):
+    """Returns the number of times won after ``n`` games.
+    """
+    results = [play_game() for _ in range(n)]
+    return (sum(results) / n) * 100
+
+
 if __name__ == "__main__":
-    # Variables for full sim
-    num_of_sims = 0
-    wins = 0
-    losses = 0
-
-    while (
-        num_of_sims < 100000
-    ):  # Select number of simulations with a maximum of 500k
-        # Variables for each sim
-        num_of_cards_dealt = 0
-        num_of_completes = 0
-
-        # Create a basic deck of cards
-        deck = f.create_deck_of_cards()
-
-        # Create playing board
-        current_board = f.create_board()
-
-        # Deals the following rounds and marks completed positions
-        f.deal_rounds(current_board, num_of_cards_dealt, deck)
-
-        # Count completed positions
-        num_of_completes = f.count_completes(num_of_completes, current_board)
-
-        # Check board for result
-        wins, losses = f.count_wins(num_of_completes, wins, losses)
-
-        num_of_sims += 1
-
-    # Print simulation result
-    f.sim_result(wins, losses, num_of_sims)
+    """Runs the function "play_n_games()" to simulate calling "play_game()" n number of times.
+    
+    Returns:
+    ------------
+    Number of times the player won the game out of n tries.
+    """
+    print(
+        "The chance of winning the game is: "
+        + str(play_n_games(100000))
+        + " percent."
+    )

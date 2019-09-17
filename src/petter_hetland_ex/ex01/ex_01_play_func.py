@@ -7,9 +7,9 @@ __email__ = "pehe@nmbu.no"
 
 # Creates a normal deck of 52 cards:
 def create_deck_of_cards():
-    SUITS = ["C", "S", "H", "D"]
-    VALUES = range(1, 14)
-    deck = [(suit, val) for suit in SUITS for val in VALUES]
+    suits = ["C", "S", "H", "D"]
+    values = range(1, 14)
+    deck = [(suit, val) for suit in suits for val in values]
     return deck
 
 
