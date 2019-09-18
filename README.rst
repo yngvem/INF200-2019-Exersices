@@ -1,7 +1,7 @@
 INF200 Exercises:
 =================
 
-PETTER HETLAND:
+petter hetland:
 -------------------
 
 This repository contains all the exersices written as part of the
