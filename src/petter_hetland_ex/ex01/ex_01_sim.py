@@ -24,7 +24,8 @@ def play_game():
 
 
 def create_deck_of_cards():
-    """Creates a normal deck of 52 playing cards, in form of a list with 2-tuples.
+    """Creates a normal deck of 52 playing cards,
+    in form of a list with 2-tuples.
     """
     suits = ["C", "S", "H", "D"]
     deck = [(suit, val) for suit in suits for val in range(1, 14)]
@@ -32,7 +33,8 @@ def create_deck_of_cards():
 
 
 def create_board():
-    """ Creates a playing board with 13 empty positions in the form of 2-tuples.
+    """ Creates a playing board with 13 empty
+    positions in the form of 2-tuples.
     """
     board = [(None, None) for _ in range(13)]
     return board
@@ -77,7 +79,8 @@ def play_n_games(n):
 
 
 if __name__ == "__main__":
-    """Runs the function "play_n_games()" to simulate calling "play_game()" n number of times.
+    """Runs the function "play_n_games()" to 
+    simulate calling "play_game()" n number of times.
     
     Returns:
     ------------

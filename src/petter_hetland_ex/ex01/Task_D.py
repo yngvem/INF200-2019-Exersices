@@ -58,16 +58,16 @@ if __name__ == "__main__":
 
         if (
             tries_left > 0
-        ):  # Check whether the player has succeeded within the given number of tries
+        ):
             points += tries_left  # Adds points
             # Success message
             print("---------------")
+            print("You guessed correctly!)")
             print(
-                "You guessed correctly!\nYou made {} attempt(s) and won {} points.".format(
-                    attempts, tries_left
+                f"You made {attempts} attempt(s)",
+                f"and won {tries_left} point(s)."
                 )
-            )
-            print("You now have {} points.".format(points))
+            print("You now have {} point(s).".format(points))
             print("---------------")
         else:
             # Failure message

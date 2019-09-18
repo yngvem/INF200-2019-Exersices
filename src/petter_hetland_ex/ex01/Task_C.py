@@ -2,7 +2,8 @@ __author__ = "petter hetland"
 __email__ = "pehe@nmbu.no"
 
 # TASK C
-# The script returns a count of each letter in the given word in an alphabetical order
+# The script returns a count of each letter in the
+# given word in an alphabetical order
 letter_count = {}
 
 
